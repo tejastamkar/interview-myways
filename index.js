@@ -1,8 +1,8 @@
 function getAns(number) {
   var ansString = [];
-  var getNumArra = Array.from(String(number), Number);
-  //   console.log(getNumArra);
   var total = 0;
+  var getNumArra = Array.from(String(number), Number);
+
   getNumArra.forEach((num) => {
     total += num;
   });
