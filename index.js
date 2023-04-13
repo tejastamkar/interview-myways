@@ -6,9 +6,7 @@ function getAns(number) {
   getNumArra.forEach((num) => {
     total += num;
   });
-  for (var i = 0; i <= total; i++) {
-    console.log(i % 4 == 0);
-
+  for (var i = 1; i <= total; i++) {
     if (i % 5 == 0 && i % 4 == 0) {
       ansString.push("FizzBuzz");
     } else if (i % 4 == 0) {
@@ -18,10 +16,10 @@ function getAns(number) {
     } else {
       ansString.push(i);
     }
-   
   }
-  console.log(ansString);
+
+  console.log(ansString.join(" "));
 }
 
-// getAns(123455689);
-getAns(9000000099);
+getAns(9819535276);
+// getAns(9000000099);
