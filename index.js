@@ -21,5 +21,5 @@ function getAns(number) {
   console.log(ansString.join(" "));
 }
 
-getAns(9819535276);
+// getAns(9819535276);
 // getAns(9000000099);
