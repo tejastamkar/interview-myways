@@ -12,6 +12,11 @@ function App() {
     { name: "noodle", type: "Fast Food", dt: 20 },
     { name: "Veg Mix", type: "Nutritious", dt: 15 },
   ]);
+
+  useEffect(() => {
+    console.log(FoodList)
+  }, [FoodList])
+  
   return (
     <div>
       <BrowserRouter>

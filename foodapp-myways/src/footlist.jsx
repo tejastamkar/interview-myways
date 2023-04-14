@@ -1,14 +1,15 @@
 import React from "react";
 import Navbar from "./navbar";
-import { FoodList } from "./data/foodData";
-
-function FoodListScreen({ foodList }) {
+import Button from "react-bootstrap/Button";
+function FoodListScreen({ foodList, setOpen }) {
   return (
     <>
-      <Navbar />
       <div>
         {foodList.map((data, index) => FoodCard({ data: data, index: index }))}
       </div>
+      <Button variant="outline-primary" onClick={() => setOpen(false)}>
+        Add
+      </Button>
     </>
   );
 }
@@ -19,8 +20,7 @@ function FoodCard({ data, index }) {
   return (
     <div className="FoodCard" key={index}>
       <div>{`${index}. ${data["name"]}`}</div>
-      {data["type"]}
-      {data["dt"]}
+      {`Type: ${data["type"]}   , Time: ${data["dt"]}m`}
     </div>
   );
 }

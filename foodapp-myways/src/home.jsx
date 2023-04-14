@@ -4,12 +4,15 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./home.css";
 import Dropdown from "react-bootstrap/Dropdown";
-import { FoodList } from "./data/foodData";
+// import {} from "react-router-dom";
+import FoodListScreen from "./footlist";
 function Home({ addFood, food }) {
   // Delicious Food, Nutritious Food, Fast Food, Beverages, and Desserts,
+  const [open, setOpen] = useState(false);
   const [type, setType] = useState("Select Food Type");
   const [name, setName] = useState("");
   const [time, setTime] = useState(0);
+  //   const history = useHistory();
 
   function addList() {
     var item = {
@@ -17,16 +20,15 @@ function Home({ addFood, food }) {
       type: type,
       dt: time,
     };
-    addFood(...food, item);
+
+    addFood([...food, item]);
   }
 
-  useEffect(() => {
-    console.log(time);
-  }, [time]);
-
-  return (
+  return open ? (
+    <FoodListScreen foodList={food} setOpen={setOpen} />
+  ) : (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="Form-Input">
         <Form.Label htmlFor="foodName">Food Name</Form.Label>
         <Form.Control
@@ -71,6 +73,14 @@ function Home({ addFood, food }) {
         <div className="SendBtn">
           <Button variant="outline-primary" onClick={addList}>
             Add The Item
+          </Button>
+        </div>
+
+        <br />
+
+        <div className="SendBtn">
+          <Button variant="outline-primary" onClick={() => setOpen(true)}>
+            FoodList
           </Button>
         </div>
       </div>
